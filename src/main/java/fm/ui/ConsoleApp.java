@@ -64,6 +64,9 @@ public class ConsoleApp {
             } catch (AppException e) {
                 System.out.println("  ERROR: " + e.getMessage());
             }
+            catch (RuntimeException e) {
+            System.out.println("  Unexpected error: " + e.getMessage());
+        }
         }
     }
 
@@ -203,7 +206,6 @@ public class ConsoleApp {
         }
     }
 
-    // ---------- безопасный ввод ----------
     private String ask(String prompt) {
         System.out.print(prompt + ": ");
         if (!in.hasNextLine()) {
